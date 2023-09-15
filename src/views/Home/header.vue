@@ -12,9 +12,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="text-icon" data-v-a62181fa=""><path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path></svg>
             </div>
             <div class="menu">
-              <a href="" class="menu-item">测试</a>
-              <a href="" class="menu-item">测试1321155131</a>
-              <a href="" class="menu-item">测试</a>
+              <a class="menu-item" v-for="(item,index) in menuList" :key="index" @click="goToPath(item.path)">{{ item.label }}</a>
             </div>
           </div>
         </nav>
@@ -28,6 +26,23 @@
 
 <script setup>
 import Switch from '@/components/Header/switch.vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const menuList = [{
+  label:'文章列表',
+  path:'/article'
+},{
+  label:'文章详情',
+  path:'/article/detail'
+},{
+  label:'新增文章',
+  path:'/article/editor'
+}]
+
+const goToPath = (path)=>{
+  router.push(path)
+}
 
 </script>
 

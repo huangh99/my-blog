@@ -4,6 +4,18 @@ const routes = [
     path: '/', 
     component: () => import('@/views/Home/index.vue')
   },
+  {
+    path: '/article', 
+    component: () => import('@/views/Article/index.vue')
+  },
+  {
+    path: '/article/detail', 
+    component: () => import('@/views/Article/detail.vue')
+  },
+  {
+    path: '/article/editor', 
+    component: () => import('@/views/Article/editor.vue')
+  },
 ]
 
 const router = createRouter({
