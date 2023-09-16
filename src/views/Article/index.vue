@@ -1,6 +1,6 @@
 <template>
 <div v-for="(item,index) in list" :key="index">{{item.title}}</div>
-<div @click="submit">提交</div>
+<div @click="submit" class="test">提交</div>
 </template>
 
 <script setup>
@@ -29,5 +29,8 @@ onMounted(()=>{
 </script>
 
 <style scoped>
+.test{
+  color: blue;
+}
 
 </style>
