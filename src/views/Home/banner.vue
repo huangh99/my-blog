@@ -6,12 +6,13 @@
 
 
 <script setup>
-import { reactive, onMounted, ref, nextTick } from 'vue'
+import { onMounted, ref, onUnmounted } from 'vue'
 
 const lineColor = {
   phase: Math.random() * Math.PI * 2,
   amplitude: 85,
-  frequency: 0.0015,
+  // frequency: 0.0015,
+  frequency: 0.005, // 变化速率
   offset: 285
 }
 
@@ -94,8 +95,7 @@ class Point{
 const start = () => {
   context.clearRect(0, 0, context.canvas.width, context.canvas.height)
   context.globalCompositeOperation = "lighter";
-  context.strokeStyle = "hsla(" + getColor() + ",90%,50%,0.25)";
-  // context.strokeStyle = "hsla(" + getColor() + ",90%,50%,0.5)";
+  context.strokeStyle = "hsla(" + getColor() + ",90%,50%,0.35)";
   context.lineWidth = 1;
 
   for (let index = 0; index < defaultOptions.trails; index++) {
@@ -153,6 +153,11 @@ const initLines = () => {
 onMounted(() => {
   initCanvas()
   window.addEventListener("resize", resizeCanvas);
+})
+
+onUnmounted(() => {
+  document.removeEventListener('mousemove', getCoordinate);
+  window.removeEventListener("resize", resizeCanvas);
 })
 
 </script>

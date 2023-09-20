@@ -1,9 +1,11 @@
 <template>
   <Header></Header>
+  <Banner></Banner>
 </template>
 
 <script setup>
 import Header from './header.vue'
+import Banner from './banner.vue'
 </script>
 
 <style scoped>

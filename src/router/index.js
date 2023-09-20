@@ -16,6 +16,10 @@ const routes = [
     path: '/article/editor', 
     component: () => import('@/views/Article/editor.vue')
   },
+  {
+    path: '/article/bin', 
+    component: () => import('@/views/Article/bin.vue')
+  },
 ]
 
 const router = createRouter({

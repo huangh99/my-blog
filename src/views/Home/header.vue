@@ -52,6 +52,8 @@ header {
   background-color: var(--h-bg-color);
   border-bottom: 1px solid var(--h-nav-bd-color);
   user-select: none;
+  position: fixed;
+  width: 100%;
 }
 
 .container {
