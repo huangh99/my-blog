@@ -54,6 +54,7 @@ header {
   user-select: none;
   position: fixed;
   width: 100%;
+  z-index: 999;
 }
 
 .container {
@@ -142,6 +143,7 @@ nav .nav-group{
   font-weight: 500;
   color: var(--h-text-color-1);
   white-space: nowrap;
+  cursor: pointer;
   border-radius: 6px;
   transition: all .25s;
 }
