@@ -1,22 +1,12 @@
 <template>
   <div class="canvas-wrapper">
     <canvas class="canvas-content" ref="canvas"></canvas>
-    <div class="text-wrapper" :style="{ '--max-text': maxLength,'--max-color': '#ff0000' }">
+    <div class="text-wrapper" :style="{ '--max-text': maxLength, '--max-color': '#ff0000' }">
       <h1 :class="{ 'transition-in': isMounted }">
-        <span
-          :class="`letter-${index}`"
-          v-for="(item, index) in text1"
-          :key="index"
-          >{{ item }}</span
-        >
+        <span :class="`letter-${index}`" v-for="(item, index) in text1" :key="index">{{ item }}</span>
       </h1>
       <h2 :class="{ 'transition-in': isMounted }">
-        <span
-          :class="`letter-${index}`"
-          v-for="(item, index) in text2"
-          :key="index"
-          >{{ item }}</span
-        >
+        <span :class="`letter-${index}`" v-for="(item, index) in text2" :key="index">{{ item }}</span>
       </h2>
     </div>
   </div>
@@ -24,12 +14,10 @@
 
 <script setup>
 import { onMounted, ref, onUnmounted } from 'vue'
-const text1 = '这是一段文字'
-const text2 = 'thi'
+const text1 = '追光的人，终会光芒万丈'
+const text2 = 'Those who pursue light will eventually shine brightly'
 let transitionTimer = null
 const isMounted = ref(false)
-
-const maxLength = text1.length > text2.length ? text1 : text2
 
 const lineColor = {
   phase: Math.random() * Math.PI * 2,
@@ -182,7 +170,6 @@ onMounted(() => {
   window.addEventListener('resize', resizeCanvas)
   transitionTimer = setTimeout(() => {
     isMounted.value = true
-    console.log(maxLength);
   }, Math.random() * 500 + 500)
 })
 
@@ -201,30 +188,35 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-
 .canvas-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 .text-wrapper {
+  $length: 53;
+
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
   h1 {
-    font-size: 2.75em;
+    margin-bottom: 20px;
+    font-size: 44px;
     font-weight: 400;
-    letter-spacing: 0.35em;
+    letter-spacing: 12px;
     text-shadow: 0 0 25px rgba(254, 254, 255, 0.85);
   }
 
   h2 {
-    font-size: 1.45em;
+    font-size: 24;
     font-weight: 400;
-    letter-spacing: 0.5em;
+    letter-spacing: 6px;
     text-shadow: 0 0 25px rgba(254, 254, 255, 0.85);
-    text-transform: lowercase;
   }
 
   h1 [class^='letter'],
@@ -241,9 +233,12 @@ onUnmounted(() => {
     transition: opacity 3s ease;
   }
 
-  @for $i from 0 through 14 {
-    .letter-#{$i} {
+  @for $i from 0 through $length {
+    h1 .letter-#{$i} {
       transition-delay: #{0.2 * $i}s;
+    }
+    h2 .letter-#{$i} {
+      transition-delay: #{0.04 * $i}s;
     }
   }
 }

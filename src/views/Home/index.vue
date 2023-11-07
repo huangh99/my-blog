@@ -1,19 +1,15 @@
 <template>
-  <Header></Header>
   <Banner></Banner>
+  <Container></Container>
+  <Footer></Footer>
 </template>
 
 <script setup>
-import Header from './header.vue'
 import Banner from './banner.vue'
+import Container from './container.vue'
+import Footer from './footer.vue'
 </script>
 
 <style scoped>
-.content{
-  /* width: 1024px; */
-  width: 100px;
-  margin: 0 auto;
-  height: 500px;
-  background-color: rgb(177, 177, 172);
-}
+
 </style>

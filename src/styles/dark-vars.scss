@@ -1,6 +1,7 @@
 // 暗黑模式
 html.dark {
   --h-bg-color: #1e1e20;
+  --h-body-bg-color: #000;
   --h-nav-bd-color: #000;
   --h-text-color-1: #fffff5db;
   --h-text-hover-color-1: #9499ff;
@@ -12,4 +13,5 @@ html.dark {
   --h-switch-bd-color: #525259ad;
   --h-switch-ic-color: #fffff5db;
   --h-switch-ic-bg-color: #000;
+  --h-underline-color: #52525952;
 }
